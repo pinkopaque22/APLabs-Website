@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "products#index"
 # This resource route does all of the below
   resources :products
   # get "/products", to: "products#index"
