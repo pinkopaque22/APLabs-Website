@@ -1,7 +1,9 @@
 <h1>New Product</h1>
-
-<%= form_with model: @product do |form| %>
-  <div>
+<%# these two lines will replace the below code and use the form partial we added %>
+<%= render "form", product: @product %>
+<%= link_to "Cancel", products_path %>
+<%# <%= form_with model: @product do |form| %>
+  <!-- <div>
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
@@ -9,4 +11,4 @@
   <div>
     <%= form.submit %>
   </div>
-  <% end %>
+  <% end %> %> -->
