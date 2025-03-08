@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resource :session
+    resources :passwords, param: :token
   root "products#index"
 # This resource route does all of the below
   resources :products
