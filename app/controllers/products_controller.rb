@@ -46,6 +46,7 @@ private
   end
 
   def product_params
-    params.expect(product: [ :name ])
+    # only allow a list of trusted paramaters through
+    params.expect(product: [ :name, :description, :featured_image ])
   end
 end
