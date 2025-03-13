@@ -1,0 +1,108 @@
+<div class="about-container">
+  <section class="hero">
+    <div class="container">
+      <h1>About Us</h1>
+      <p class="lead">We're a passionate team committed to crafting exceptional software and designing innovative digital experiences.</p>
+    </div>
+  </section>
+
+  <section class="company-info">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Our Story</h2>
+          <% if @company_info && @company_info[:founded] %>
+            <p>Founded in <%= @company_info[:founded] %>, our story began when Gerardo, a visionary designer with an eye for aesthetic perfection, crossed paths with Patricia, a brilliant software engineer who thrives on elegant code solutions. Gerardo transforms abstract concepts into visually stunning websites, each one a unique digital canvas that captivates and inspires.</p>
+          <% else %>
+            <p>Patricia complements his artistic vision with her technical prowess, architecting streamlined web applications where every function and feature is meticulously crafted for optimal user experience.</p>
+          <% end %>
+          <p>Together, they've created a synergy where Gerardo's beautiful designs come to life through Patricia's thoughtful engineering, resulting in digital experiences that are both visually breathtaking and intuitively functional.</p>
+        </div>
+        <div class="col-md-6">
+          <h2>Our Mission</h2>
+          <% if @company_info && @company_info[:mission] %>
+            <p><%= @company_info[:mission] %></p>
+          <% else %>
+            <p>To create innovative software solutions that solve real-world problems.</p>
+          <% end %>
+
+          <h2>Our Vision</h2>
+          <% if @company_info && @company_info[:vision] %>
+            <p><%= @company_info[:vision] %></p>
+          <% else %>
+            <p>Becoming the leading provider of user-friendly, accessible technology that improves everyday life.</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team">
+    <div class="container">
+      <h2 class="text-center mb-5">Meet Our Team</h2>
+      <div class="row">
+        <% if @team_members && @team_members.any? %>
+          <% @team_members.each do |member| %>
+            <div class="col-md-4 mb-4">
+              <div class="card team-card">
+                <% if member[:image] %>
+                  <img src="<%= asset_path(member[:image]) %>" class="card-img-top" alt="<%= member[:name] %>">
+                <% end %>
+                <div class="card-body">
+                  <h5 class="card-title"><%= member[:name] %></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><%= member[:position] %></h6>
+                  <p class="card-text"><%= member[:bio] %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="col-12 text-center">
+            <p>Our team information is currently being updated. Please check back soon!</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
+
+  <section class="values">
+    <div class="container">
+      <h2 class="text-center mb-5">Our Core Values</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="value-card">
+            <i class="fas fa-lightbulb fa-3x mb-3"></i>
+            <h3>Innovation</h3>
+            <p>We constantly push boundaries and explore new ideas to create cutting-edge solutions.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="value-card">
+            <i class="fas fa-users fa-3x mb-3"></i>
+            <h3>Collaboration</h3>
+            <p>We believe great things happen when talented people work together toward a common goal.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="value-card">
+            <i class="fas fa-heart fa-3x mb-3"></i>
+            <h3>Integrity</h3>
+            <p>We're committed to honesty, transparency, and doing what's right for our customers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-cta">
+    <div class="container text-center">
+      <h2>Want to learn more?</h2>
+      <p class="lead">We'd love to hear from you!</p>
+      <% if defined?(contact_path) %>
+        <%= link_to 'Contact Us', contact_path, class: 'btn btn-primary btn-lg' %>
+      <% else %>
+        <a href="/contact" class="btn btn-primary btn-lg">Contact Us</a>
+      <% end %>
+    </div>
+  </section>
+</div>
