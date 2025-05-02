@@ -3,13 +3,11 @@ Rails.application.routes.draw do
   get "contact", to: "pages#contact", as: "contact"
   root "pages#about"
 
-  # get "products#index"
-
   resource :session
     resources :passwords, param: :token
   # This resource route does all of the below
-  resources :products
-   get "/products", to: "products#index"
+  resources :products, only:[:index, :show]
+   get "home", to: "pages#home"
 
    get "/products/new", to: "products#new"
    post "/products", to: "products#create"
