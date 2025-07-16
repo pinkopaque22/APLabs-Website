@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resource :session
     resources :passwords, param: :token
   # This resource route does all of the below
-  resources :products, only:[:index, :show]
+  resources :products, only: [ :index, :show ]
    get "home", to: "pages#home"
 
    get "/products/new", to: "products#new"
